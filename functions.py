@@ -70,42 +70,83 @@ PART TWO:
 
 # 1. Write a function called 'hello_world' that does not take any arguments and
 #    prints "Hello World".
-def hello_world(greeting):
-    "Prints Hello World"
+def hello_world():
+    "Prints greeting"
 
     print("Hello World")
 
 
 # 2. Write a function called 'say_hi' that takes a name as a string and
 #    prints "Hi" followed by the name.
+def say_hi(name):
+    "Says Hi to user by name"
+    
+    print('Hi', name)
 
 
 # 3. Write a function called 'print_product' that takes two integers and
 #    multiplies them together. Print the result.
+def print_product(int1, int2):
+    "Print the product of 2 integers"
+
+    print (int1 * int2)
 
 
 # 4. Write a function called 'repeat_string' that takes a string and an integer
 #    and prints the string that many times
+def repeat_string(msg, times_to_repeat):
+    "Prints string three times"
+
+    print(msg * times_to_repeat)
 
 
 # 5. Write a function called 'print_sign' that takes an integer and prints
 #    "Higher than 0" if higher than zero and "Lower than 0" if lower than zero.
 #    If the integer is zero, print "Zero".
+def print_sign(some_int):
+    "Prints a message indicating if function is higher or lower than zero"
+    
+    if some_int > 0: 
+        print('Higher than 0')
+
+    elif some_int < 0:
+        print('Lower than 0')
+
+    else:
+        print('Zero')
 
 
 # 6. Write a function called 'is_divisible_by_three' that takes an integer and
 #    returns a boolean (True or False), depending on whether the number is
 #    evenly divisible by 3.
+def is_divisible_by_three(an_int):
+    "Returns true if int is divisible by three else returns false"
+
+    return an_int % 3 == 0
 
 
 # 7. Write a function called 'num_spaces' that takes a sentence as one string
 #    and returns the number of spaces.
+def num_spaces(a_sentence):
+    "How many spaces in a string?"
+
+    spaces = 0
+    
+    for char in a_sentence:
+        if char == " ":
+            spaces += 1
+    return spaces
 
 
 # 8. Write a function called 'total_meal_price' that can be passed a meal price
 #    and a tip percentage. It should return the total amount paid
 #    (price + price * tip). **However:** passing in the tip percentage should
 #    be optional; if not given, it should default to 15%.
+ 
+def total_meal_price(meal_price, tip_percentage = 0.15):
+    "Calculates total price from meal price and tips"
+
+    return meal_price + (meal_price * tip_percentage)
 
 
 # 9. Write a function called 'sign_and_parity' that takes an integer as an
@@ -117,7 +158,24 @@ def hello_world(greeting):
 #    unpack what is returned into two variables --- sign and parity (whether
 #    it's even or odd). Print sign and parity.
 
+def sign_and_parity(num):
+    "Return a list of [sign, parity]"
 
+    if num >= 0:
+        sign = 'Positive'
+    else:
+        sign = 'Negative'
+
+    if num % 2 == 0:
+        parity = 'Even'
+    else:
+        parity = 'Odd'
+    
+    return [sign, parity]
+
+my_sign, my_parity = sign_and_parity(-8)
+print(my_parity)
+print(my_sign)
 ###############################################################################
 
 # PART TWO
@@ -125,6 +183,13 @@ def hello_world(greeting):
 # 1. Write a function called full_title that takes a name and a job title as
 #    parameters, making it so the job title defaults to "Engineer" if a job
 #    title is not passed in. Return the person's title and name in one string.
+
+
+def full_title(name, title="Engineer"):
+    """Return the full  for a person."""
+
+    return f"{title} {name}"
+
 
 # 2. Write a function called write_letter that, given a recipient name & job
 #    title and a sender name, prints the following letter:
@@ -135,7 +200,12 @@ def hello_world(greeting):
 #    Use the function from #1 to construct the full title for the letter's
 #    greeting.
 
+def write_letter(name, job_title, sender):
+    "Prints letter given a name and job title"
 
+    receiver = full_title(name, job_title)
+
+    print('''Dear {receiver}, I think you are amazing! Sincerely, {sender}''')
 ###############################################################################
 
 # END OF PRACTICE: You can ignore everything below.
