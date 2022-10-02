@@ -187,6 +187,8 @@ def mult_numbers(numbers):
         >>> mult_numbers([])
         1
     """
+    product = 1
+    
     for num in numbers:
         product = product * num
 
@@ -330,8 +332,16 @@ def duplicates(items):
         >>> orig
         ['apple', 'apple', 'berry']
     """
+    dupes = []
 
-    return []
+    items = sorted(items)
+
+    for i in range(1, len(items)):
+        if items[i] == items[i - 1]:
+            if items[i] not in dupes:
+                dupes.append(items[i])
+
+    return dupes
 
 
 def find_letter_indices(words, letter):
@@ -358,8 +368,19 @@ def find_letter_indices(words, letter):
     ("o" does not appear in "jumps", so the result for that input is
     `None`.)
     """
+    indices = []
 
-    return []
+    for word in words:
+        found_at = None
+
+        for i in range(len(word)):
+            if word[i] == letter:
+                found_at = i
+                break
+
+        indices.append(found_at)
+
+    return indices
 
 
 #####################################################################
